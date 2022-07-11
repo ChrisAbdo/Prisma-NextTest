@@ -11,7 +11,7 @@ export default function ContactCard(props: ContactCardProps) {
       
         <li className="mt-2  rounded-lg p-4 flex ">
 
-<a className="card w-96 bg-base-100 border shadow-xl">
+<a className="card w-96 bg-base-100 border border-gray-500 shadow-xl">
   <figure><Image
               src={props.contact.avatar}
               alt="Avatar"

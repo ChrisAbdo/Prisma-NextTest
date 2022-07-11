@@ -102,9 +102,9 @@ export default function Index({ initialContacts }) {
       <App />
       <Search />
       <div className="flex">
-        <section className="w-1/3 bg-gray-800 h-screen p-8 ">
+        <section className="w-1/3 border border-gray-500  p-4 ">
           <div className="mb-3">
-            <h2 className="text-3xl text-white">Upload your credentials :)</h2>
+            <h2 className="text-3xl text-white">Upload your credentials</h2>
           </div>
           <AddContactForm
             onSubmit={async (data, e) => {
@@ -118,9 +118,9 @@ export default function Index({ initialContacts }) {
             }}
           />
         </section>
-        <section className="w-2/3 h-screen p-8">
-          <div className="mb-3">
-            <h2 className="text-3xl text-gray-700">Contacts</h2>
+        <section className="w-2/3 h-screen p-4">
+          <div className="mb-3 ml-4">
+            <h2 className="text-3xl text-white">BUIDLERS</h2>
           </div>
           <input
         type="text"
@@ -128,7 +128,7 @@ export default function Index({ initialContacts }) {
         onKeyUp={myFunction}
         placeholder="Search wallet addresses..."
         title="Type in a name"
-        className="input input-bordered input-info w-full max-w-xs  z-10"
+        className="input input-bordered input-info w-full max-w-sm ml-4 z-10"
       />
           
           {/* create a search function that filters specific contacts relating to input*/}
@@ -137,6 +137,18 @@ export default function Index({ initialContacts }) {
         
             
           ))}
+        </section>
+        <section className="w-3/3 border border-gray-500  p-4 ">
+          <div className="mb-3">
+            <h2 className="text-3xl text-white">Sort by category</h2>
+          </div>
+          <div className="flex flex-col">
+          <div className="cursor-pointer  badge mb-2">front end </div>
+<div className="cursor-pointer badge badge-primary mb-2">back end </div>
+<div className="cursor-pointer badge badge-secondary mb-2">full stack </div>
+<div className="cursor-pointer badge badge-accent mb-2">smart contract </div>
+<div className="cursor-pointer badge badge-ghost mb-2">community manager</div>
+</div>
         </section>
       </div>
     </>

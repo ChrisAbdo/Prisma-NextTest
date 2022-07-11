@@ -44,7 +44,7 @@ function App() {
     }
   }
   return (
-    <div className="p-4">
+    <div className="p-4 border-b border-gray-500">
       <div className="text-center mb-2">
         <h1>Upload Avatar to IPFS.</h1>
       </div>
