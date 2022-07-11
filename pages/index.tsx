@@ -34,6 +34,24 @@ async function saveContact(contact: Prisma.ContactCreateInput) {
 
 export default function Index({ initialContacts }) {
   const [contacts, setContacts] = useState<Contact[]>(initialContacts);
+
+  function myFunction() {
+    var input, filter,  li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+
+    li = document.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("a")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+    
   return (
     <>
       <Head>
@@ -70,14 +88,23 @@ export default function Index({ initialContacts }) {
           <div className="mb-3">
             <h2 className="text-3xl text-gray-700">Contacts</h2>
           </div>
+          <input
+        type="text"
+        id="myInput"
+        onKeyUp={myFunction}
+        placeholder="Search for names.."
+        title="Type in a name"
+      />
+          
           {/* create a search function that filters specific contacts relating to input*/}
           {contacts.map((c, i: number) => (
-            <div className="mb-3" key={i}>
-              <ContactCard contact={c} />
-            </div>
+              <ContactCard contact={c} key={i}/>
+        
+            
           ))}
         </section>
       </div>
     </>
   );
 }
+

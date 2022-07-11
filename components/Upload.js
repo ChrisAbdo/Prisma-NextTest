@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { create } from "ipfs-http-client";
+import { Contact } from "@prisma/client";
 
 const client = create("https://ipfs.infura.io:5001/api/v0");
 
@@ -43,17 +44,10 @@ function App() {
         <input type="file" onChange={onChange} />
         {fileUrl && <h1 id="helloWorld">{fileUrl}</h1>}
       </div>
-      {/* <input
-        type="text"
-        id="myInput"
-        onKeyUp={myFunction}
-        placeholder="Search for names.."
-        title="Type in a name"
-      />
 
-      <ul id="myUL">
+      {/* <ul id="myUL">
         <li>
-          <a href="#">Adele</a>
+          <a href="#"></a>
         </li>
         <li>
           <a href="#">Agnes</a>
