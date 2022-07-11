@@ -47,18 +47,25 @@ export default function AddContactForm(props: AddContactFormProps) {
       </InputSpacer>
       <InputSpacer>
         <input
+          id='id1'
           placeholder="Avatar"
           name="avatar"
           ref={register({ required: true })}
         />
         {errors.avatar && <FormError errorMessage="Avatar is required" />}
       </InputSpacer>
-      <button
-        className="bg-blue-500 rounded-md mb-2 p-4 text-blue-100"
+      <div
+        className="cursor-pointer bg-blue-500 rounded-md mb-2 p-4 text-blue-100 text-center"
+        onClick={() => {
+          var el_down = (document.getElementById('helloWorld') as HTMLElement);
+          var inputF = (document.getElementById('id1') as HTMLInputElement);
+          inputF.value = el_down.innerText;
+          }
+        }
         
       >
         FetchURL
-      </button>
+      </div>
       <button
         className="bg-blue-500 rounded-md p-4 text-blue-100"
         type="submit"
