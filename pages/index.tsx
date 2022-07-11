@@ -5,6 +5,8 @@ import ContactCard from './../components/ContactCard';
 import Web3 from 'web3';
 
 import { PrismaClient, Contact, Prisma } from '@prisma/client';
+import { ChakraProvider } from '@chakra-ui/react'
+
 
 import App from '../components/Upload';
 import Navbar from '../components/Navbar';
@@ -100,7 +102,7 @@ export default function Index({ initialContacts }) {
       <App />
       <Search />
       <div className="flex">
-        <section className="w-1/3 bg-gray-800 h-screen p-8">
+        <section className="w-1/3 bg-gray-800 h-screen p-8 ">
           <div className="mb-3">
             <h2 className="text-3xl text-white">Upload your credentials :)</h2>
           </div>
@@ -124,8 +126,9 @@ export default function Index({ initialContacts }) {
         type="text"
         id="myInput"
         onKeyUp={myFunction}
-        placeholder="Search for names.."
+        placeholder="Search wallet addresses..."
         title="Type in a name"
+        className="input input-bordered input-info w-full max-w-xs  z-10"
       />
           
           {/* create a search function that filters specific contacts relating to input*/}

@@ -14,7 +14,7 @@ interface AddContactFormProps {
 export default function AddContactForm(props: AddContactFormProps) {
   const { register, handleSubmit, errors } = useForm();
   return (
-    <div>
+    <div className="">
       <div>
         
       </div>
@@ -48,7 +48,7 @@ export default function AddContactForm(props: AddContactFormProps) {
           className='rounded p-4 text-xl w-full'
           ref={register({ required: true })}
         />
-        <div
+        {/* <div
         className="cursor-pointer bg-blue-500 rounded-md mt-2 mb-2 p-4 text-blue-100 text-center"
         onClick={() => {
           var el_down1 = (document.getElementById('helloWorld1') as HTMLElement);
@@ -59,7 +59,14 @@ export default function AddContactForm(props: AddContactFormProps) {
         
       >
         FetchURL RESUME
-      </div>
+      </div> */}
+      <button onClick={() => {
+          var el_down1 = (document.getElementById('helloWorld1') as HTMLElement);
+          var inputF1 = (document.getElementById('id2') as HTMLInputElement);
+          inputF1.value = el_down1.innerText;
+          }
+        } className="btn btn-info mt-2 w-full">FetchURL RESUME</button>
+
         {errors.email && <FormError errorMessage="Email is required" />}
       </InputSpacer>
       
@@ -73,10 +80,10 @@ export default function AddContactForm(props: AddContactFormProps) {
           name="avatar"
           ref={register({ required: true })}
         />
-        {errors.avatar && <FormError errorMessage="Avatar is required" />}
+        
       </InputSpacer>
       <div
-        className="cursor-pointer bg-blue-500 rounded-md mb-12 p-4 text-blue-100 text-center"
+        className="btn btn-info mb-12 w-full"
         onClick={() => {
           var el_down = (document.getElementById('helloWorld') as HTMLElement);
           var inputF = (document.getElementById('id1') as HTMLInputElement);
@@ -88,7 +95,7 @@ export default function AddContactForm(props: AddContactFormProps) {
         FetchURL AVATAR
       </div>
       <button
-        className="bg-blue-500 rounded-md p-4 text-blue-100"
+         className="btn btn-info text-white"
         type="submit"
       >
         Submit
