@@ -22,7 +22,7 @@ export default function AddContactForm(props: AddContactFormProps) {
       <InputSpacer>
         <input
           placeholder="Wallet Address"
-          className="rounded p-4 text-xl w-full"
+          className="input input-bordered w-full max-w-xs text-white input-info"
           name="firstName"
           ref={register({ required: true })}
         />
@@ -34,7 +34,7 @@ export default function AddContactForm(props: AddContactFormProps) {
         <input
           placeholder="Name (Optional - put NA)"
           name="lastName"
-          className="rounded p-4 text-xl w-full mb-12"
+          className="input input-bordered w-full max-w-xs mb-12 input-info"
           ref={register({ required: true })}
         />
         {errors.lastName && <FormError errorMessage="Last Name is required" />}
