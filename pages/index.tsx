@@ -82,6 +82,26 @@ export default function Index({ initialContacts }) {
     }
   }
 
+  function sortByRole(){
+    // set the input field value to  id='role1'
+    var el_down2 = (document.getElementById('role1') as HTMLElement);
+    var inputF2 = (document.getElementById('myInput') as HTMLInputElement);
+    // inputF2.value = el_down2.innerText;
+    // replace it letter by letter
+    var i = 0;
+    var timer = setInterval(function() {
+      if (i < el_down2.innerText.length) {
+        inputF2.value += el_down2.innerText[i];
+        i++;
+      } else {
+        clearInterval(timer);
+      }
+    }
+    , 100);
+
+
+  }
+
   
     
   return (
@@ -146,7 +166,8 @@ export default function Index({ initialContacts }) {
             <h2 className="text-3xl text-white">Sort by category</h2>
           </div>
           <div className="flex flex-col">
-          <div className="cursor-pointer badge badge-success mb-2">front end </div>
+          <div className="cursor-pointer badge badge-success mb-2" id='role1'
+          onClick={sortByRole}>front end </div>
           <div className="cursor-pointer badge badge-info mb-2">back end </div>
           <div className="cursor-pointer badge badge-secondary mb-2">full stack </div>
           <div className="cursor-pointer badge badge-accent mb-2">smart contract </div>

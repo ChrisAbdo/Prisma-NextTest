@@ -48,6 +48,7 @@ export default function AddContactForm(props: AddContactFormProps) {
           <option>Front End</option>
           <option>Back End</option>
           <option>Full Stack</option>
+          <option>Smart Contract</option>
         
         </select>
         {errors.role && (
@@ -57,7 +58,8 @@ export default function AddContactForm(props: AddContactFormProps) {
 
 
           <InputSpacer>
-          <textarea className="textarea textarea-info max-w-xs w-full" placeholder="Bio"></textarea>
+            <textarea name="bio" ref={register({ required: true })} className="textarea textarea-info max-w-xs w-full" placeholder="Enter a quick Bio"></textarea>
+            {errors.bio && <FormError errorMessage="Bio is required" />}
           </InputSpacer>
 
 

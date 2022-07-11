@@ -79,6 +79,9 @@ export default function ContactCard(props: ContactCardProps) {
     <h3 className="card-subtitle text-sm">
       AKA: {props.contact.lastName}
     </h3>
+    <p className="card-text text-sm">
+      {props.contact.bio.substring(0, 223).concat('...')}
+    </p>
 
     <button
     onClick={() => {
@@ -106,7 +109,7 @@ export default function ContactCard(props: ContactCardProps) {
               {props.contact.firstName} {props.contact.lastName}
             </h1>
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              {props.contact.bio}
             </Typography>
           </Box>
         </Fade>

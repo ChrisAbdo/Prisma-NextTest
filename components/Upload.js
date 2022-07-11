@@ -45,6 +45,11 @@ function App() {
   }
   return (
     <div className="p-4 border-b border-gray-500">
+      <link
+        href="https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.css"
+        rel="stylesheet"
+      />
+
       <div className="text-center mb-2">
         <h1>Upload Avatar to IPFS.</h1>
       </div>
