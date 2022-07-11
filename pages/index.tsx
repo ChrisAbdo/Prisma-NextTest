@@ -4,7 +4,10 @@ import AddContactForm from './../components/AddContactForm';
 import ContactCard from './../components/ContactCard';
 
 import { PrismaClient, Contact, Prisma } from '@prisma/client';
+
 import App from '../components/Upload';
+import Navbar from '../components/Navbar';
+import Search from '../components/Search';
 
 const prisma = new PrismaClient();
 
@@ -43,7 +46,9 @@ export default function Index({ initialContacts }) {
         <link href="https://cdn.jsdelivr.net/npm/daisyui@2.19.0/dist/full.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.tailwindcss.com"></script>
       </Head>
+      <Navbar />
       <App />
+      <Search />
       <div className="flex">
         <section className="w-1/3 bg-gray-800 h-screen p-8">
           <div className="mb-3">
@@ -65,6 +70,7 @@ export default function Index({ initialContacts }) {
           <div className="mb-3">
             <h2 className="text-3xl text-gray-700">Contacts</h2>
           </div>
+          {/* create a search function that filters specific contacts relating to input*/}
           {contacts.map((c, i: number) => (
             <div className="mb-3" key={i}>
               <ContactCard contact={c} />

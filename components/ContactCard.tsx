@@ -6,9 +6,14 @@ interface ContactCardProps {
 }
 
 export default function ContactCard(props: ContactCardProps) {
+ 
+  
   return (
-    <div className="border rounded-lg p-4 flex">
-      <div className="my-auto">
+    <div>
+      
+    <ul id="myUL" className="border rounded-lg p-4 flex">
+      
+      <li><div className="my-auto" id="myUL">
         <Image
           src={props.contact.avatar}
           alt="Avatar"
@@ -16,13 +21,19 @@ export default function ContactCard(props: ContactCardProps) {
           height={100}
           className="rounded-full"
         />
-      </div>
-      <div className="ml-4">
+      </div></li>
+      <li><div className="ml-4">
         <p className="text-xl text-gray-700">
-          {props.contact.firstName} {props.contact.lastName}
+          {props.contact.firstName} 
+        </p>
+        <p className="text-xl text-gray-700">
+          {props.contact.lastName}
         </p>
         <p className="text-gray-500">{props.contact.email}</p>
+        
       </div>
+      </li>
+    </ul>
     </div>
   );
 }

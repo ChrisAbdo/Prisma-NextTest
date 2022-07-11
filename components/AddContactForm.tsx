@@ -46,6 +46,16 @@ export default function AddContactForm(props: AddContactFormProps) {
         />
         {errors.email && <FormError errorMessage="Email is required" />}
       </InputSpacer>
+      {/* <InputSpacer>
+        <input
+          placeholder="Age"
+          name="age"
+          className='rounded p-4 text-xl w-full'
+          ref={register({ required: true })}
+        />
+        {errors.age && <FormError errorMessage="Age is required" />}
+      </InputSpacer> */}
+
       <InputSpacer>
           
         <input
