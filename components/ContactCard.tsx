@@ -23,9 +23,9 @@ export default function ContactCard(props: ContactCardProps) {
       {props.contact.firstName} 
       
     </h2>
-    <div className="badge badge-primary">AKA</div>
+    <div className="badge badge-primary">{props.contact.role}</div>
     <h3 className="card-subtitle text-sm">
-      {props.contact.lastName}
+      AKA: {props.contact.lastName}
     </h3>
 
     <button

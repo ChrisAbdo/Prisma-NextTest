@@ -30,14 +30,27 @@ export default function AddContactForm(props: AddContactFormProps) {
           <FormError errorMessage="First Name is required" />
         )}
       </InputSpacer>
+      
       <InputSpacer>
         <input
           placeholder="Name (Optional - put NA)"
           name="lastName"
-          className="input input-bordered w-full max-w-xs mb-12 input-info"
+          className="input input-bordered w-full max-w-xs  input-info"
           ref={register({ required: true })}
         />
         {errors.lastName && <FormError errorMessage="Last Name is required" />}
+      </InputSpacer>
+
+      <InputSpacer>
+        <input
+          placeholder="Role (Front End, Back End, Full Stack, etc)"
+          className="input input-bordered w-full max-w-xs text-white input-info mb-12"
+          name="role"
+          ref={register({ required: true })}
+        />
+        {errors.role && (
+          <FormError errorMessage="First Name is required" />
+        )}
       </InputSpacer>
       <InputSpacer>
           

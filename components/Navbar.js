@@ -38,7 +38,7 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search"
-            class="input input-bordered"
+            class="input input-bordered border-gray-500"
           />
         </div>
         <div class="dropdown dropdown-end">
