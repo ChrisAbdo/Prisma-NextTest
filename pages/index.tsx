@@ -42,8 +42,8 @@ export default function Index({ initialContacts }) {
   useEffect(() => {
     loadWeb3();
     loadBlockchainData();
-  }
-  , [])
+  }, []);
+  
 
   async function loadWeb3() {
     if (window.ethereum) {
@@ -81,6 +81,8 @@ export default function Index({ initialContacts }) {
       }
     }
   }
+
+  
     
   return (
     <>
@@ -93,6 +95,7 @@ export default function Index({ initialContacts }) {
         />
         <link href="https://cdn.jsdelivr.net/npm/daisyui@2.19.0/dist/full.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="../path/to/flowbite/dist/flowbite.js"></script>
       </Head>
 
     {/* load a different page before this one */}
@@ -143,12 +146,12 @@ export default function Index({ initialContacts }) {
             <h2 className="text-3xl text-white">Sort by category</h2>
           </div>
           <div className="flex flex-col">
-          <div className="cursor-pointer  badge mb-2">front end </div>
-<div className="cursor-pointer badge badge-primary mb-2">back end </div>
-<div className="cursor-pointer badge badge-secondary mb-2">full stack </div>
-<div className="cursor-pointer badge badge-accent mb-2">smart contract </div>
-<div className="cursor-pointer badge badge-ghost mb-2">community manager</div>
-</div>
+          <div className="cursor-pointer badge badge-success mb-2">front end </div>
+          <div className="cursor-pointer badge badge-info mb-2">back end </div>
+          <div className="cursor-pointer badge badge-secondary mb-2">full stack </div>
+          <div className="cursor-pointer badge badge-accent mb-2">smart contract </div>
+          <div className="cursor-pointer badge badge-ghost mb-2">community manager</div>
+        </div>
         </section>
       </div>
     </>

@@ -1,12 +1,64 @@
 import { Contact } from '@prisma/client';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import Backdrop from '@mui/material/Backdrop';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import Fade from '@mui/material/Fade';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+
 
 interface ContactCardProps {
   contact: Contact;
 }
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
 export default function ContactCard(props: ContactCardProps) {
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+ async function setCorrectRoles(){
+  if(document.getElementById("roleSelect") != null){
+  // if(document.getElementById('roleSelect').innerHTML === 'Full Stack'){
+  //   document.getElementById('roleSelect').className = 'badge badge-secondary'
+  // } 
+  // make this apply for every instance of the role
+  for(let i = 0; i < document.getElementsByClassName('roleSelect').length; i++){
+    if(document.getElementsByClassName('roleSelect')[i].innerHTML === 'Front End'){
+      document.getElementsByClassName('roleSelect')[i].className = 'badge badge-success'
+    } else
+    if(document.getElementsByClassName('roleSelect')[i].innerHTML === 'Back End'){
+      document.getElementsByClassName('roleSelect')[i].className = 'badge badge-info'
+    } else
+    if(document.getElementsByClassName('roleSelect')[i].innerHTML === 'Full Stack'){
+      document.getElementsByClassName('roleSelect')[i].className = 'badge badge-secondary'
+    } else
+    if(document.getElementsByClassName('roleSelect')[i].innerHTML === 'Smart Contract'){
+      document.getElementsByClassName('roleSelect')[i].className = 'badge badge-accent'
+    }
+
+  }}
  
+
+ }
+  useEffect(() => {
+    setCorrectRoles();
+  }
+  , [])
   return (
       
         <li className="mt-2  rounded-lg p-4 flex ">
@@ -23,7 +75,7 @@ export default function ContactCard(props: ContactCardProps) {
       {props.contact.firstName} 
       
     </h2>
-    <div className="badge badge-primary">{props.contact.role}</div>
+    <div id='roleSelect' className="roleSelect badge badge-primary">{props.contact.role}</div>
     <h3 className="card-subtitle text-sm">
       AKA: {props.contact.lastName}
     </h3>
@@ -35,10 +87,32 @@ export default function ContactCard(props: ContactCardProps) {
     }
     }
     className="btn">View Resume</button>
-    {/* <div className="card-actions justify-end">
-      <div className="badge badge-outline">Fashion</div> 
-      <div className="badge badge-outline">Products</div>
-    </div> */}
+
+      <button className="btn max-w-xs" onClick={handleOpen}>bio / profile</button>
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+          <Box sx={style}>
+            <h1 id="transition-modal-title" >
+              {props.contact.firstName} {props.contact.lastName}
+            </h1>
+            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            </Typography>
+          </Box>
+        </Fade>
+      </Modal>
+
+
   </div>
 </a>
         </li>

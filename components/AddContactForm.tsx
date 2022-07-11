@@ -27,7 +27,7 @@ export default function AddContactForm(props: AddContactFormProps) {
           ref={register({ required: true })}
         />
         {errors.firstName && (
-          <FormError errorMessage="First Name is required" />
+          <FormError errorMessage="WALLET ADDRESS is required" />
         )}
       </InputSpacer>
       
@@ -38,65 +38,53 @@ export default function AddContactForm(props: AddContactFormProps) {
           className="input input-bordered w-full max-w-xs  input-info"
           ref={register({ required: true })}
         />
-        {errors.lastName && <FormError errorMessage="Last Name is required" />}
+        {errors.lastName && <FormError errorMessage="NAME is required" />}
       </InputSpacer>
 
       <InputSpacer>
-        <input
-          placeholder="Role (Front End, Back End, Full Stack, etc)"
-          className="input input-bordered w-full max-w-xs text-white input-info mb-12"
-          name="role"
-          ref={register({ required: true })}
-        />
+        
+        <select ref={register({ required: true })} name="role" className="select select-info w-full max-w-xs">
+          <option disabled selected>Select role</option>
+          <option>Front End</option>
+          <option>Back End</option>
+          <option>Full Stack</option>
+        
+        </select>
         {errors.role && (
           <FormError errorMessage="First Name is required" />
         )}
       </InputSpacer>
+
+
+          <InputSpacer>
+          <textarea className="textarea textarea-info max-w-xs w-full" placeholder="Bio"></textarea>
+          </InputSpacer>
+
+
       <InputSpacer>
-          
-        <input
-          placeholder="Link to resume"
-          id='id2'
-          name="email"
-          className='rounded p-4 text-xl w-full'
-          ref={register({ required: true })}
-        />
-        {/* <div
-        className="cursor-pointer bg-blue-500 rounded-md mt-2 mb-2 p-4 text-blue-100 text-center"
-        onClick={() => {
-          var el_down1 = (document.getElementById('helloWorld1') as HTMLElement);
-          var inputF1 = (document.getElementById('id2') as HTMLInputElement);
-          inputF1.value = el_down1.innerText;
-          }
-        }
-        
-      >
-        FetchURL RESUME
-      </div> */}
       <button onClick={() => {
           var el_down1 = (document.getElementById('helloWorld1') as HTMLElement);
           var inputF1 = (document.getElementById('id2') as HTMLInputElement);
           inputF1.value = el_down1.innerText;
           }
-        } className="btn btn-info mt-2 w-full">FetchURL RESUME</button>
+        } className="btn btn-info btn-outline mt-2 mb-3 w-full">FetchURL RESUME</button>
+        <input
+          placeholder="Link to resume"
+          id='id2'
+          name="email"
+          className='input input-bordered w-full max-w-xs text-white input-info'
+          ref={register({ required: true })}
+        />
+        
+      
 
-        {errors.email && <FormError errorMessage="Email is required" />}
+        {errors.email && <FormError errorMessage="RESUME is required" />}
       </InputSpacer>
       
 
       <InputSpacer>
-          
-        <input
-          id='id1'
-          placeholder="Avatar"
-          className="rounded p-4 text-xl w-full"
-          name="avatar"
-          ref={register({ required: true })}
-        />
-        
-      </InputSpacer>
-      <div
-        className="btn btn-info mb-12 w-full"
+      <button
+        className="btn btn-info mb-3 w-full btn-outline"
         onClick={() => {
           var el_down = (document.getElementById('helloWorld') as HTMLElement);
           var inputF = (document.getElementById('id1') as HTMLInputElement);
@@ -106,9 +94,19 @@ export default function AddContactForm(props: AddContactFormProps) {
         
       >
         FetchURL AVATAR
-      </div>
+      </button>
+        <input
+          id='id1'
+          placeholder="Link to Avatar"
+          className="input input-bordered w-full max-w-xs text-white input-info"
+          name="avatar"
+          ref={register({ required: true })}
+        />
+        
+      </InputSpacer>
+      
       <button
-         className="btn btn-info text-white"
+         className="btn btn-info text-white mt-12"
         type="submit"
       >
         Submit
