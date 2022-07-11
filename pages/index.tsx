@@ -4,6 +4,7 @@ import AddContactForm from './../components/AddContactForm';
 import ContactCard from './../components/ContactCard';
 
 import { PrismaClient, Contact, Prisma } from '@prisma/client';
+import App from '../components/Upload';
 
 const prisma = new PrismaClient();
 
@@ -40,6 +41,7 @@ export default function Index({ initialContacts }) {
           rel="stylesheet"
         />
       </Head>
+      <App />
       <div className="flex">
         <section className="w-1/3 bg-gray-800 h-screen p-8">
           <div className="mb-3">

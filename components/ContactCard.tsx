@@ -12,8 +12,8 @@ export default function ContactCard(props: ContactCardProps) {
         <Image
           src={props.contact.avatar}
           alt="Avatar"
-          width={40}
-          height={40}
+          width={100}
+          height={100}
           className="rounded-full"
         />
       </div>

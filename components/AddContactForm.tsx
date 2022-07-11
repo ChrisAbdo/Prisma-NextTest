@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import Input from './Input';
 import InputSpacer from './InputSpacer';
+import App from './Upload'
 
 const FormError = ({ errorMessage }) => {
   return <p className="text-red-300 mt-1">{errorMessage}</p>;
@@ -13,6 +14,10 @@ interface AddContactFormProps {
 export default function AddContactForm(props: AddContactFormProps) {
   const { register, handleSubmit, errors } = useForm();
   return (
+    <div>
+      <div>
+        
+      </div>
     <form className="flex flex-col" onSubmit={handleSubmit(props.onSubmit)}>
       <InputSpacer>
         <Input
@@ -41,14 +46,19 @@ export default function AddContactForm(props: AddContactFormProps) {
         {errors.email && <FormError errorMessage="Email is required" />}
       </InputSpacer>
       <InputSpacer>
-        <Input
+        <input
           placeholder="Avatar"
           name="avatar"
-          formRef={register({ required: true })}
+          ref={register({ required: true })}
         />
         {errors.avatar && <FormError errorMessage="Avatar is required" />}
       </InputSpacer>
-
+      <button
+        className="bg-blue-500 rounded-md mb-2 p-4 text-blue-100"
+        
+      >
+        FetchURL
+      </button>
       <button
         className="bg-blue-500 rounded-md p-4 text-blue-100"
         type="submit"
@@ -56,5 +66,6 @@ export default function AddContactForm(props: AddContactFormProps) {
         Submit
       </button>
     </form>
+    </div>
   );
 }
