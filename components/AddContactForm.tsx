@@ -20,41 +20,49 @@ export default function AddContactForm(props: AddContactFormProps) {
       </div>
     <form className=" flex flex-col" onSubmit={handleSubmit(props.onSubmit)}>
       <InputSpacer>
-        <InputTS
-          placeholder="First Name"
+        <input
+          placeholder="Wallet Address"
+          className="rounded p-4 text-xl w-full"
           name="firstName"
-          formRef={register({ required: true })}
+          ref={register({ required: true })}
         />
         {errors.firstName && (
           <FormError errorMessage="First Name is required" />
         )}
       </InputSpacer>
       <InputSpacer>
-        <InputTS
-          placeholder="Last Name"
+        <input
+          placeholder="Name (Optional - put NA)"
           name="lastName"
-          formRef={register({ required: true })}
+          className="rounded p-4 text-xl w-full mb-12"
+          ref={register({ required: true })}
         />
         {errors.lastName && <FormError errorMessage="Last Name is required" />}
       </InputSpacer>
       <InputSpacer>
+          
         <input
-          placeholder="Email"
+          placeholder="Link to resume"
+          id='id2'
           name="email"
           className='rounded p-4 text-xl w-full'
           ref={register({ required: true })}
         />
+        <div
+        className="cursor-pointer bg-blue-500 rounded-md mt-2 mb-2 p-4 text-blue-100 text-center"
+        onClick={() => {
+          var el_down1 = (document.getElementById('helloWorld1') as HTMLElement);
+          var inputF1 = (document.getElementById('id2') as HTMLInputElement);
+          inputF1.value = el_down1.innerText;
+          }
+        }
+        
+      >
+        FetchURL RESUME
+      </div>
         {errors.email && <FormError errorMessage="Email is required" />}
       </InputSpacer>
-      {/* <InputSpacer>
-        <input
-          placeholder="Age"
-          name="age"
-          className='rounded p-4 text-xl w-full'
-          ref={register({ required: true })}
-        />
-        {errors.age && <FormError errorMessage="Age is required" />}
-      </InputSpacer> */}
+      
 
       <InputSpacer>
           
@@ -68,7 +76,7 @@ export default function AddContactForm(props: AddContactFormProps) {
         {errors.avatar && <FormError errorMessage="Avatar is required" />}
       </InputSpacer>
       <div
-        className="cursor-pointer bg-blue-500 rounded-md mb-2 p-4 text-blue-100 text-center"
+        className="cursor-pointer bg-blue-500 rounded-md mb-12 p-4 text-blue-100 text-center"
         onClick={() => {
           var el_down = (document.getElementById('helloWorld') as HTMLElement);
           var inputF = (document.getElementById('id1') as HTMLInputElement);
@@ -77,7 +85,7 @@ export default function AddContactForm(props: AddContactFormProps) {
         }
         
       >
-        FetchURL
+        FetchURL AVATAR
       </div>
       <button
         className="bg-blue-500 rounded-md p-4 text-blue-100"

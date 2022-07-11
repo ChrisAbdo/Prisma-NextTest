@@ -22,6 +22,7 @@ function App() {
     }
   }
   const [fileUrl, updateFileUrl] = useState(``);
+  const [fileUrl1, updateFileUrl1] = useState(``);
   async function onChange(e) {
     const file = e.target.files[0];
     try {
@@ -32,17 +33,32 @@ function App() {
       console.log("Error uploading file: ", error);
     }
   }
+  async function onChange1(e) {
+    const file1 = e.target.files[0];
+    try {
+      const added1 = await client.add(file1);
+      const url1 = `https://ipfs.infura.io/ipfs/${added1.path}`;
+      updateFileUrl1(url1);
+    } catch (error) {
+      console.log("Error uploading file: ", error);
+    }
+  }
   return (
     <div className="p-4">
       <div className="text-center mb-2">
-        <h1>
-          Upload Resume to IPFS. Press FetchURL in the form to auto pull the
-          link
-        </h1>
+        <h1>Upload Avatar to IPFS.</h1>
       </div>
       <div className="text-center">
         <input type="file" onChange={onChange} />
         {fileUrl && <h1 id="helloWorld">{fileUrl}</h1>}
+      </div>
+
+      <div className="text-center mt-2 mb-2">
+        <h1>Upload Resume to IPFS.</h1>
+      </div>
+      <div className="text-center">
+        <input type="file" onChange={onChange1} />
+        {fileUrl1 && <h1 id="helloWorld1">{fileUrl1}</h1>}
       </div>
 
       {/* <ul id="myUL">

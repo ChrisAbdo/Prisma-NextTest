@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import AddContactForm from './../components/AddContactForm';
 import ContactCard from './../components/ContactCard';
+import Web3 from 'web3';
 
 import { PrismaClient, Contact, Prisma } from '@prisma/client';
 
@@ -34,6 +35,33 @@ async function saveContact(contact: Prisma.ContactCreateInput) {
 
 export default function Index({ initialContacts }) {
   const [contacts, setContacts] = useState<Contact[]>(initialContacts);
+  const [account, setAccount] = useState('')
+
+  useEffect(() => {
+    loadWeb3();
+    loadBlockchainData();
+  }
+  , [])
+
+  async function loadWeb3() {
+    if (window.ethereum) {
+      window.web3 = new Web3(window.ethereum);
+      await window.ethereum.enable();
+    } else if (window.web3) {
+      window.web3 = new Web3(window.web3.currentProvider);
+    } else {
+      window.alert(
+        "Non-Ethereum browser detected. You should consider trying MetaMask!"
+      );
+    }
+  }
+
+  async function loadBlockchainData() {
+    const web3 = window.web3;
+    const accounts = await web3.eth.getAccounts();
+    setAccount(accounts[0]);
+    console.log(accounts[0]);
+  }
 
   function myFunction() {
     var input, filter,  li, a, i, txtValue;
@@ -64,13 +92,17 @@ export default function Index({ initialContacts }) {
         <link href="https://cdn.jsdelivr.net/npm/daisyui@2.19.0/dist/full.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.tailwindcss.com"></script>
       </Head>
+
+    {/* load a different page before this one */}
+    
+
       <Navbar />
       <App />
       <Search />
       <div className="flex">
         <section className="w-1/3 bg-gray-800 h-screen p-8">
           <div className="mb-3">
-            <h2 className="text-3xl text-white">Add a Contact</h2>
+            <h2 className="text-3xl text-white">Upload your credentials :)</h2>
           </div>
           <AddContactForm
             onSubmit={async (data, e) => {
