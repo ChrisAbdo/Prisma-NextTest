@@ -54,7 +54,15 @@ function App() {
         <h1>Upload Avatar to IPFS.</h1>
       </div>
       <div className="text-center">
-        <input type="file" onChange={onChange} />
+        {/* <input type="file" onChange={onChange} /> */}
+        <button type="file" className="btn btn-outline btn-info">
+          <input
+            type="file"
+            onChange={onChange}
+            className="custom-file-input"
+            id="customFile"
+          />
+        </button>
         {fileUrl && <h1 id="helloWorld">{fileUrl}</h1>}
       </div>
 
@@ -62,7 +70,9 @@ function App() {
         <h1>Upload Resume to IPFS.</h1>
       </div>
       <div className="text-center">
-        <input type="file" onChange={onChange1} />
+        <button type="file" className="btn btn-outline btn-info">
+          <input type="file" onChange={onChange1} />
+        </button>
         {fileUrl1 && <h1 id="helloWorld1">{fileUrl1}</h1>}
       </div>
 

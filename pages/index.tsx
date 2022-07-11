@@ -116,6 +116,7 @@ export default function Index({ initialContacts }) {
         <link href="https://cdn.jsdelivr.net/npm/daisyui@2.19.0/dist/full.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="../path/to/flowbite/dist/flowbite.js"></script>
+<script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
       </Head>
 
     {/* load a different page before this one */}
