@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import Input from './Input';
+import InputTS from './Input';
 import InputSpacer from './InputSpacer';
 import App from './Upload'
 
@@ -18,9 +18,9 @@ export default function AddContactForm(props: AddContactFormProps) {
       <div>
         
       </div>
-    <form className="flex flex-col" onSubmit={handleSubmit(props.onSubmit)}>
+    <form className="min-h-screen flex flex-col" onSubmit={handleSubmit(props.onSubmit)}>
       <InputSpacer>
-        <Input
+        <InputTS
           placeholder="First Name"
           name="firstName"
           formRef={register({ required: true })}
@@ -30,7 +30,7 @@ export default function AddContactForm(props: AddContactFormProps) {
         )}
       </InputSpacer>
       <InputSpacer>
-        <Input
+        <InputTS
           placeholder="Last Name"
           name="lastName"
           formRef={register({ required: true })}
@@ -38,17 +38,19 @@ export default function AddContactForm(props: AddContactFormProps) {
         {errors.lastName && <FormError errorMessage="Last Name is required" />}
       </InputSpacer>
       <InputSpacer>
-        <Input
+        <input
           placeholder="Email"
           name="email"
-          formRef={register({ required: true })}
+          ref={register({ required: true })}
         />
         {errors.email && <FormError errorMessage="Email is required" />}
       </InputSpacer>
       <InputSpacer>
+          
         <input
           id='id1'
           placeholder="Avatar"
+          
           name="avatar"
           ref={register({ required: true })}
         />

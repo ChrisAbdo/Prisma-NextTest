@@ -16,7 +16,7 @@ function App() {
     }
   }
   return (
-    <div className="App">
+    <div className="flex">
       <h1>IPFS Example</h1>
       <input type="file" onChange={onChange} />
       {fileUrl && <p id="helloWorld">{fileUrl}</p>}

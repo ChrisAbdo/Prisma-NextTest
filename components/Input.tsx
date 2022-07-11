@@ -4,7 +4,7 @@ interface InputProps {
   formRef: any;
 }
 
-export default function Input(props: InputProps) {
+export default function InputTS(props: InputProps) {
   return (
     <input
       className="rounded p-4 text-xl w-full"
