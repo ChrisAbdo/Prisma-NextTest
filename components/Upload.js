@@ -16,10 +16,27 @@ function App() {
     }
   }
   return (
-    <div className="flex">
-      <h1>IPFS Example</h1>
-      <input type="file" onChange={onChange} />
-      {fileUrl && <p id="helloWorld">{fileUrl}</p>}
+    <div class="navbar bg-base-100">
+      <div class="flex-1">
+        <a class="btn btn-ghost normal-case text-xl">Web3.Me</a>
+      </div>
+      <div class="flex-1">
+        <input type="file" onChange={onChange} />
+        {fileUrl && (
+          <div>
+            <a
+              class="btn btn-ghost normal-case text-xl"
+              target="_blank"
+              href={fileUrl}
+            >
+              View
+            </a>
+            <h1 class="opacity-0" id="helloWorld">
+              {fileUrl}
+            </h1>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

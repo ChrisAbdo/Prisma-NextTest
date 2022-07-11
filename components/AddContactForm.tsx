@@ -18,7 +18,7 @@ export default function AddContactForm(props: AddContactFormProps) {
       <div>
         
       </div>
-    <form className="min-h-screen flex flex-col" onSubmit={handleSubmit(props.onSubmit)}>
+    <form className=" flex flex-col" onSubmit={handleSubmit(props.onSubmit)}>
       <InputSpacer>
         <InputTS
           placeholder="First Name"
@@ -41,6 +41,7 @@ export default function AddContactForm(props: AddContactFormProps) {
         <input
           placeholder="Email"
           name="email"
+          className='rounded p-4 text-xl w-full'
           ref={register({ required: true })}
         />
         {errors.email && <FormError errorMessage="Email is required" />}
@@ -50,7 +51,7 @@ export default function AddContactForm(props: AddContactFormProps) {
         <input
           id='id1'
           placeholder="Avatar"
-          
+          className="rounded p-4 text-xl w-full"
           name="avatar"
           ref={register({ required: true })}
         />
