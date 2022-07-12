@@ -17,5 +17,6 @@ model Contact {
   email     String
   role      String
   bio       String
+  portfolio String
   avatar    String @default("")
 }

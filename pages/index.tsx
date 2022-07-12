@@ -38,6 +38,7 @@ async function saveContact(contact: Prisma.ContactCreateInput) {
 export default function Index({ initialContacts }) {
   const [contacts, setContacts] = useState<Contact[]>(initialContacts);
   const [account, setAccount] = useState('')
+  const [connected, setConnected] = useState(false)
 
   useEffect(() => {
     loadWeb3();
@@ -65,7 +66,7 @@ export default function Index({ initialContacts }) {
     console.log(accounts[0]);
   }
 
-  function myFunction() {
+  function filterSearch() {
     var input, filter,  li, a, i, txtValue;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
@@ -98,8 +99,6 @@ export default function Index({ initialContacts }) {
       }
     }
     , 100);
-
-
   }
 
   
@@ -119,8 +118,14 @@ export default function Index({ initialContacts }) {
 <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
       </Head>
 
-    {/* load a different page before this one */}
-    
+    {/* if users wallet address is null, load a h1 that says connect to wallet */}
+    {account === '' ? (
+      <h1>Connect to wallet</h1>
+    ) : (
+      <>
+        
+
+
 
       <Navbar />
       <App />
@@ -149,13 +154,12 @@ export default function Index({ initialContacts }) {
           <input
         type="text"
         id="myInput"
-        onKeyUp={myFunction}
+        onKeyUp={filterSearch}
         placeholder="Search wallet addresses..."
         title="Type in a name"
         className="input input-bordered input-info w-full max-w-sm ml-4 z-10"
       />
           
-          {/* create a search function that filters specific contacts relating to input*/}
           {contacts.map((c, i: number) => (
               <ContactCard contact={c} key={i}/>
         
@@ -175,7 +179,11 @@ export default function Index({ initialContacts }) {
           <div className="cursor-pointer badge badge-ghost mb-2">community manager</div>
         </div>
         </section>
-      </div>
+      </div> 
+
+        
+    </>
+    )}
     </>
   );
 }

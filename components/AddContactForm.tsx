@@ -49,6 +49,7 @@ export default function AddContactForm(props: AddContactFormProps) {
           <option>Back End</option>
           <option>Full Stack</option>
           <option>Smart Contract</option>
+          <option>Community Manager</option>
         
         </select>
         {errors.role && (
@@ -62,6 +63,16 @@ export default function AddContactForm(props: AddContactFormProps) {
             {errors.bio && <FormError errorMessage="Bio is required" />}
           </InputSpacer>
 
+          <InputSpacer>
+        <input
+          placeholder="Portfolio Link (Optional)"
+          name="portfolio"
+          className="input input-bordered w-full max-w-xs  input-info"
+          ref={register({ required: true })}
+        />
+        {errors.portfolio && <FormError errorMessage="PORTFOLIO is required" />}
+      </InputSpacer>
+
 
       <InputSpacer>
       <button onClick={() => {
@@ -69,12 +80,12 @@ export default function AddContactForm(props: AddContactFormProps) {
           var inputF1 = (document.getElementById('id2') as HTMLInputElement);
           inputF1.value = el_down1.innerText;
           }
-        } className="btn btn-info btn-outline mt-2 mb-3 w-full">FetchURL RESUME</button>
+        } className="btn btn-info btn-outline mt-2 mb-3 max-w-xs">FetchURL RESUME</button>
         <input
           placeholder="Link to resume"
           id='id2'
           name="email"
-          className='input input-bordered w-full max-w-xs text-white input-info'
+          className='input input-bordered w-full max-w-xs mb-4 text-white input-info'
           ref={register({ required: true })}
         />
         
@@ -86,7 +97,7 @@ export default function AddContactForm(props: AddContactFormProps) {
 
       <InputSpacer>
       <button
-        className="btn btn-info mb-3 w-full btn-outline"
+        className="btn btn-info mb-3 max-w-xs btn-outline"
         onClick={() => {
           var el_down = (document.getElementById('helloWorld') as HTMLElement);
           var inputF = (document.getElementById('id1') as HTMLInputElement);

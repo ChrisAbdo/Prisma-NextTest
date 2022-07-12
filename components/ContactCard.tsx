@@ -50,6 +50,10 @@ export default function ContactCard(props: ContactCardProps) {
     if(document.getElementsByClassName('roleSelect')[i].innerHTML === 'Smart Contract'){
       document.getElementsByClassName('roleSelect')[i].className = 'badge badge-accent'
     }
+    else
+    if(document.getElementsByClassName('roleSelect')[i].innerHTML === 'Community Manager'){
+      document.getElementsByClassName('roleSelect')[i].className = 'badge badge-ghost'
+    }
 
   }}
  
@@ -64,11 +68,12 @@ export default function ContactCard(props: ContactCardProps) {
         <li className="mt-2  rounded-lg p-4 flex ">
 
 <a className="card w-96 bg-base-100 border border-gray-500 shadow-xl">
-  <figure><Image
+  <figure className="mt-4"><Image
               src={props.contact.avatar}
               alt="Avatar"
-              width={100}
-              height={100}
+              width={150}
+              height={150}
+              className="rounded-full"
              /></figure>
   <div className="card-body">
     <h2 className="card-title text-sm">
@@ -77,21 +82,16 @@ export default function ContactCard(props: ContactCardProps) {
     </h2>
     <div id='roleSelect' className="roleSelect badge badge-primary">{props.contact.role}</div>
     <h3 className="card-subtitle text-sm">
-      AKA: {props.contact.lastName}
+      <b>AKA:</b> {props.contact.lastName}
     </h3>
     <p className="card-text text-sm">
       {props.contact.bio.substring(0, 223).concat('...')}
     </p>
+    {/* <a target="_blank" href={props.contact.portfolio} className="card-text text-sm">
+      {props.contact.portfolio}
+    </a> */}
 
-    <button
-    onClick={() => {
-      // open window with {props.contact.email} as url
-      window.open(props.contact.email);
-    }
-    }
-    className="btn">View Resume</button>
-
-      <button className="btn max-w-xs" onClick={handleOpen}>bio / profile</button>
+<button className="btn max-w-xs" onClick={handleOpen}>bio / profile</button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -114,6 +114,24 @@ export default function ContactCard(props: ContactCardProps) {
           </Box>
         </Fade>
       </Modal>
+
+    <button
+    onClick={() => {
+      // open window with {props.contact.email} as url
+      window.open(props.contact.email);
+    }
+    }
+    className="btn">View Resume</button>
+
+<button
+    onClick={() => {
+      // open window with {props.contact.email} as url
+      window.open(props.contact.portfolio);
+    }
+    }
+    className="btn">Open Portfolio</button>
+
+      
 
 
   </div>
