@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Web3 from "web3";
+import Link from "next/link";
 
 const Navbar = () => {
   const [account, setAccount] = useState("");
@@ -49,7 +50,31 @@ const Navbar = () => {
   return (
     <div class="navbar bg-base-100 border-b border-gray-500">
       <div class="flex-1">
-        <a class="btn btn-info btn-outline normal-case text-xl">Web3.Me</a>
+        <div class="dropdown">
+          <label tabindex="0" class="btn btn-outline btn-info m-1">
+            Web3.Me
+          </label>
+          <ul
+            tabindex="0"
+            class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <Link href="/">
+              <li>
+                <a>Home</a>
+              </li>
+            </Link>
+            <Link href="/about">
+              <li>
+                <a>About</a>
+              </li>
+            </Link>
+            <Link href="/help">
+              <li>
+                <a>Help</a>
+              </li>
+            </Link>
+          </ul>
+        </div>
       </div>
       <div class="flex-none gap-2">
         <div class="form-control">

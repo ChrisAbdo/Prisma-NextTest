@@ -91,7 +91,7 @@ export default function ContactCard(props: ContactCardProps) {
       {props.contact.portfolio}
     </a> */}
 
-<button className="btn max-w-xs" onClick={handleOpen}>bio / profile</button>
+<button className="btn btn-info btn-outline max-w-xs" onClick={handleOpen}>bio / profile</button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -121,7 +121,7 @@ export default function ContactCard(props: ContactCardProps) {
       window.open(props.contact.email);
     }
     }
-    className="btn">View Resume</button>
+    className="btn btn-info btn-outline">View Resume</button>
 
 <button
     onClick={() => {
@@ -129,7 +129,7 @@ export default function ContactCard(props: ContactCardProps) {
       window.open(props.contact.portfolio);
     }
     }
-    className="btn">Open Portfolio</button>
+    className="btn btn-info btn-outline">Open Portfolio</button>
 
       
 

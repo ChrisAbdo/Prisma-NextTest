@@ -44,7 +44,7 @@ export default function AddContactForm(props: AddContactFormProps) {
           id='walletAddress'
           ref={register({ required: true })}
         />
-        <button className="btn btn-square" onClick={() => {
+        <button className="btn btn-info btn-square" onClick={() => {
           // get accounts [0] and replace id='walletAddress' with it
           (document.getElementById('walletAddress') as HTMLInputElement).value = account;
           console.log(account)

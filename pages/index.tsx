@@ -4,6 +4,8 @@ import AddContactForm from './../components/AddContactForm';
 import ContactCard from './../components/ContactCard';
 import Web3 from 'web3';
 
+import styles from '../styles/Index.module.css'
+
 import { PrismaClient, Contact, Prisma } from '@prisma/client';
 import { ChakraProvider } from '@chakra-ui/react'
 
@@ -116,6 +118,10 @@ export default function Index({ initialContacts }) {
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="../path/to/flowbite/dist/flowbite.js"></script>
 <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
+<link
+          href="https://fonts.googleapis.com/css2?family=Comforter&family=Poppins:wght@300&family=Supermercado+One&display=swap"
+          rel="stylesheet"
+        />
 
 
       </Head>
@@ -124,7 +130,7 @@ export default function Index({ initialContacts }) {
     {account === '' ? (
       <h1>Connect to wallet</h1>
     ) : (
-      <>
+      <div className={styles.homeText}>
         
 
 
@@ -132,7 +138,7 @@ export default function Index({ initialContacts }) {
       <Navbar />
       <Search />
       <div className="flex">
-        <section className="w-1/3 border border-gray-500  p-4 ">
+        <section className="w-1/3 border-r border-gray-500  p-4 ">
           <div className="mb-3">
             <h2 className="text-3xl text-white">Upload your credentials</h2>
           </div>
@@ -150,7 +156,7 @@ export default function Index({ initialContacts }) {
         </section>
         <section className="w-2/3 h-screen p-4">
           <div className="mb-3 ml-4">
-            <h2 className="text-3xl text-white">BUIDLERS</h2>
+            <h2 className="text-3xl text-white">buidlers</h2>
           </div>
           <input
         type="text"
@@ -167,7 +173,7 @@ export default function Index({ initialContacts }) {
             
           ))}
         </section>
-        <section className="w-3/3 border border-gray-500  p-4 ">
+        <section className="w-3/3 border-l border-gray-500  p-4 ">
           <div className="mb-3">
             <h2 className="text-3xl text-white">Sort by category</h2>
           </div>
@@ -183,7 +189,7 @@ export default function Index({ initialContacts }) {
       </div> 
 
         
-    </>
+    </div>
     )}
     </>
   );
