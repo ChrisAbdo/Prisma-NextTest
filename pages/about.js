@@ -186,7 +186,7 @@ export default function about() {
                 <img
                   src="https://assets.vercel.com/image/upload/q_auto/front/assets/design/white-nextjs.png"
                   alt="Shoes"
-                  class="rounded-xl"
+                  className="w-full"
                 />
               </figure>
               <div class="card-body items-center text-center">
@@ -201,7 +201,7 @@ export default function about() {
                     onClick={() => {
                       window.open("https://nextjs.org/");
                     }}
-                    class="btn btn-primary"
+                    class="btn btn-info btn-outline"
                   >
                     Learn More
                   </button>
@@ -227,7 +227,7 @@ export default function about() {
                         "https://web3js.readthedocs.io/en/v1.5.2/index.html"
                       );
                     }}
-                    class="btn btn-primary"
+                    class="btn btn-info btn-outline"
                   >
                     Web3.js
                   </button>
@@ -235,7 +235,7 @@ export default function about() {
                     onClick={() => {
                       window.open("https://ipfs.io");
                     }}
-                    class="btn btn-primary"
+                    class="btn btn-info btn-outline"
                   >
                     IPFS
                   </button>
@@ -262,7 +262,7 @@ export default function about() {
                     onClick={() => {
                       window.open("https://www.prisma.io");
                     }}
-                    class="btn btn-primary"
+                    class="btn btn-info btn-outline"
                   >
                     Learn More
                   </button>
@@ -314,7 +314,7 @@ export default function about() {
               });
               console.log(sendTx);
             }}
-            class="btn btn-primary"
+            class="btn btn-info btn-outline"
           >
             "Stake" me a coffee
           </button>
