@@ -116,6 +116,8 @@ export default function Index({ initialContacts }) {
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="../path/to/flowbite/dist/flowbite.js"></script>
 <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
+
+
       </Head>
 
     {/* if users wallet address is null, load a h1 that says connect to wallet */}
@@ -128,14 +130,13 @@ export default function Index({ initialContacts }) {
 
 
       <Navbar />
-      <App />
       <Search />
       <div className="flex">
         <section className="w-1/3 border border-gray-500  p-4 ">
           <div className="mb-3">
             <h2 className="text-3xl text-white">Upload your credentials</h2>
           </div>
-          <AddContactForm
+          <AddContactForm 
             onSubmit={async (data, e) => {
               try {
                 await saveContact(data);
